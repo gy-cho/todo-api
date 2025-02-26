@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD MyBatis 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kbds.study.todo.todos.repository.TodoRepository">
+    <select id="selectAllTodos" resultType="com.kbds.study.todo.todos.model.TodoDto">
+        SELECT * FROM todos;
+    </select>
+    <select id="selectTodoId" parameterType="int" resultType="com.kbds.study.todo.todos.model.TodoDto">
+        SELECT * FROM todos WHERE id = #{id};
+    </select>
+    <insert id="insertTodo" parameterType="com.kbds.study.todo.todos.model.TodoVo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO todos (title, completed) VALUES (#{title}, #{completed});
+    </insert>
+    <update id="updateTodo" parameterType="com.kbds.study.todo.todos.model.TodoVo">
+        UPDATE todos SET title = #{title} WHERE id = #{id};
+    </update>
+    <update id="updateTodoStatus" parameterType="com.kbds.study.todo.todos.model.TodoVo">
+        UPDATE todos SET completed = #{completed} WHERE id = #{id};
+    </update>
+    <delete id="deleteTodo" parameterType="int">
+        DELETE FROM todos WHERE id = #{id};
+    </delete>
+</mapper>
