@@ -7,7 +7,6 @@ import com.kbds.study.todo.board.model.BoardCommentDto;
 import com.kbds.study.todo.board.model.BoardCreateVo;
 import com.kbds.study.todo.board.model.BoardDetailDto;
 import com.kbds.study.todo.board.model.BoardDto;
-import com.kbds.study.todo.board.model.CommentCreateVo;
 
 @Mapper
 public interface BoardRepository {
@@ -17,5 +16,5 @@ public interface BoardRepository {
   List<BoardCommentDto> selectCommentDetail(long boardId);
   int insertBoard(BoardCreateVo board);
   int insertBoardDetail(BoardCreateVo board);
-  int insertBoardComment(CommentCreateVo comment);
+  int insertBoardComment(BoardCommentDto comment);
 }

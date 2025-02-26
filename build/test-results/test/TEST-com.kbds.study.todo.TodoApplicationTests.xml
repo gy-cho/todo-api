@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kbds.study.todo.TodoApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-02-26T00:12:40" hostname="jogyeonglan-ui-iMac.local" time="0.398">
+<testsuite name="com.kbds.study.todo.TodoApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-02-26T02:20:42" hostname="jogyeonglan-ui-iMac.local" time="0.386">
   <properties/>
-  <testcase name="contextLoads()" classname="com.kbds.study.todo.TodoApplicationTests" time="0.398"/>
-  <system-out><![CDATA[09:12:39.828 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.kbds.study.todo.TodoApplicationTests]: TodoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-09:12:39.874 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.kbds.study.todo.TodoApplication for test class com.kbds.study.todo.TodoApplicationTests
+  <testcase name="contextLoads()" classname="com.kbds.study.todo.TodoApplicationTests" time="0.386"/>
+  <system-out><![CDATA[11:20:41.495 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.kbds.study.todo.TodoApplicationTests]: TodoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:20:41.547 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.kbds.study.todo.TodoApplication for test class com.kbds.study.todo.TodoApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,15 +14,15 @@
 
  :: Spring Boot ::                (v3.4.2)
 
-2025-02-26T09:12:40.046+09:00  INFO 6358 --- [todo] [    Test worker] c.kbds.study.todo.TodoApplicationTests   : Starting TodoApplicationTests using Java 21.0.6 with PID 6358 (started by gyeongran in /Users/gyeongran/Documents/spring-study/todo)
-2025-02-26T09:12:40.047+09:00 DEBUG 6358 --- [todo] [    Test worker] c.kbds.study.todo.TodoApplicationTests   : Running with Spring Boot v3.4.2, Spring v6.2.2
-2025-02-26T09:12:40.047+09:00  INFO 6358 --- [todo] [    Test worker] c.kbds.study.todo.TodoApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-2025-02-26T09:12:40.060+09:00 DEBUG 6358 --- [todo] [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4fe875be
-2025-02-26T09:12:40.657+09:00 DEBUG 6358 --- [todo] [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 13 mappings in 'requestMappingHandlerMapping'
-2025-02-26T09:12:40.706+09:00 DEBUG 6358 --- [todo] [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2025-02-26T09:12:40.726+09:00 DEBUG 6358 --- [todo] [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2025-02-26T09:12:40.747+09:00 DEBUG 6358 --- [todo] [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2025-02-26T09:12:40.791+09:00  INFO 6358 --- [todo] [    Test worker] c.kbds.study.todo.TodoApplicationTests   : Started TodoApplicationTests in 0.858 seconds (process running for 1.36)
+2025-02-26T11:20:41.718+09:00  INFO 14847 --- [todo] [    Test worker] c.kbds.study.todo.TodoApplicationTests   : Starting TodoApplicationTests using Java 21.0.6 with PID 14847 (started by gyeongran in /Users/gyeongran/Documents/spring-study/todo-api)
+2025-02-26T11:20:41.719+09:00 DEBUG 14847 --- [todo] [    Test worker] c.kbds.study.todo.TodoApplicationTests   : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-26T11:20:41.719+09:00  INFO 14847 --- [todo] [    Test worker] c.kbds.study.todo.TodoApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2025-02-26T11:20:41.734+09:00 DEBUG 14847 --- [todo] [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4fe875be
+2025-02-26T11:20:42.302+09:00 DEBUG 14847 --- [todo] [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2025-02-26T11:20:42.347+09:00 DEBUG 14847 --- [todo] [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-02-26T11:20:42.366+09:00 DEBUG 14847 --- [todo] [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-02-26T11:20:42.389+09:00 DEBUG 14847 --- [todo] [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-02-26T11:20:42.432+09:00  INFO 14847 --- [todo] [    Test worker] c.kbds.study.todo.TodoApplicationTests   : Started TodoApplicationTests in 0.828 seconds (process running for 1.32)
 ]]></system-out>
   <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
 WARNING: A Java agent has been loaded dynamically (/Users/gyeongran/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.15.11/a38b16385e867f59a641330f0362ebe742788ed8/byte-buddy-agent-1.15.11.jar)

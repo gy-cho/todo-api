@@ -65,18 +65,11 @@ public class BoardService {
   }
 
   @Transactional
-  public BoardCommentDto createComment(CommentCreateVo comment){
+  public BoardCommentDto createComment(BoardCommentDto comment){
     int result = boardRepository.insertBoardComment(comment);
 
     if (result > 0) {
-      BoardCommentDto commentDto = new BoardCommentDto();
-      commentDto.setBoardId(comment.getBoardId());
-      commentDto.setUserId(comment.getUserId());
-      commentDto.setUserName(comment.getUserName());
-      commentDto.setCommentContent(comment.getCommentContent());
-      commentDto.setCommentCreatedAt(comment.getBoardCreateAt());
-      commentDto.setCommentUpdatedAt(comment.getBoardUpdateAt());
-      return commentDto;
+      return comment;
     } else {
       return null;
     }

@@ -9,6 +9,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public class CommentCreateVo {
   private Long boardId;
+  private Long userId;
+  private String userName;
   private String commentContent;
   private LocalDateTime boardCreateAt;
   private LocalDateTime boardUpdateAt;

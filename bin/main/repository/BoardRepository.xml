@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD MyBatis 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kbds.study.todo.board.repository.BoardRepository">
+  <select id="selectAllBoards" resultType="com.kbds.study.todo.board.model.BoardDto">
+    SELECT *
+    FROM board b 
+    JOIN user u ON b.user_id = u.user_id
+    ORDER BY b.board_updated_at DESC, b.user_id DESC;
+  </select>
+
+  <select id="selectBoardDetail" parameterType="long" resultType="com.kbds.study.todo.board.model.BoardDetailDto">
+    SELECT *
+    FROM board b 
+    JOIN board_detail d ON b.board_id = d.board_id
+    JOIN user u ON b.user_id = u.user_id
+    WHERE b.board_id = #{boardId};
+  </select>
+  <update id="updateBoardView" parameterType="long">
+    UPDATE board SET board_view = board_view + 1 WHERE board_id = #{boardId};
+  </update>
+
+  <select id="selectCommentDetail" parameterType="long" resultType="com.kbds.study.todo.board.model.BoardCommentDto">
+    SELECT *
+    FROM comment c 
+    JOIN user u ON c.user_id = u.user_id
+    WHERE c.board_id = #{boardId};
+  </select>
+
+  <insert id="insertBoard" parameterType="com.kbds.study.todo.board.model.BoardCreateVo" useGeneratedKeys="true" keyProperty="boardId">
+    INSERT INTO board (board_title, user_id) 
+    VALUES (#{boardTitle}, #{userId});
+  </insert>
+  <insert id="insertBoardDetail" parameterType="com.kbds.study.todo.board.model.BoardCreateVo">
+    INSERT INTO board_detail (board_id, board_content)
+    VALUES (#{boardId}, #{boardContent});
+  </insert>
+
+  <insert id="insertBoardComment" parameterType="com.kbds.study.todo.board.model.BoardCommentDto">
+    INSERT INTO comment (board_id, user_id, comment_content)
+    VALUES (#{boardId}, #{userId}, #{commentContent});
+  </insert>
+
+</mapper>
