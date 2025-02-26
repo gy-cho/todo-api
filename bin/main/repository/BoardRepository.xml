@@ -35,7 +35,7 @@
     VALUES (#{boardId}, #{boardContent});
   </insert>
 
-  <insert id="insertBoardComment" parameterType="com.kbds.study.todo.board.model.BoardCommentDto">
+  <insert id="insertBoardComment" parameterType="com.kbds.study.todo.board.model.CommentCreateVo">
     INSERT INTO comment (board_id, user_id, comment_content)
     VALUES (#{boardId}, #{userId}, #{commentContent});
   </insert>

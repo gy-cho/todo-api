@@ -22,8 +22,9 @@ import com.kbds.study.todo.board.model.CommentCreateVo;
 import com.kbds.study.todo.board.service.BoardService;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.kbds.study.todo.config.JwtTokenUtil;
+import com.kbds.study.todo.config.JweUtil;
 import com.kbds.study.todo.config.exception.UnauthorizedException;
+import com.kbds.study.todo.login.model.UserDto;
 
 
 @RestController
@@ -62,9 +63,9 @@ public class BoardController {
       String token = authorizationHeader.replace("Bearer ", "");
       try {
         System.out.println(token);
-        JwtTokenUtil jwtTokenUtil = new JwtTokenUtil();
-        String userId = jwtTokenUtil.getUsernameFromToken(token);
-        System.out.println("api를 호출한 사용자는 " + userId + " 입니다.");
+        JweUtil jweUtil = new JweUtil();
+        UserDto userDto = jweUtil.getUserIdFromJweToken(token);
+        System.out.println("api를 호출한 사용자는 " + userDto.getUserId() + " 입니다.");
       }catch (Exception e) {
         throw new UnauthorizedException("유효하지 않은 토큰입니다.");
       }
@@ -73,26 +74,13 @@ public class BoardController {
     
 
     @PostMapping("path")
-    public ResponseEntity<Map<String, Object>> createComment(@RequestHeader("Authorization") String authorizationHeader, @RequestBody CommentCreateVo comment) {
-      try {
-        String token = authorizationHeader.replace("Bearer ", "");
-
-        System.out.println(token);
-        JwtTokenUtil jwtTokenUtil = new JwtTokenUtil();
-        String userId = jwtTokenUtil.getUsernameFromToken(token);
-        System.out.println("api를 호출한 사용자는 " + userId + " 입니다.");
-
-        BoardCommentDto newComment = boardService.createComment(comment);
-        if(newComment != null){
-          return ResponseEntity.status(HttpStatus.CREATED).body(Collections.singletonMap("message", "게시글을 등록했습니다."));
-        }else {
-          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap("message", "게시글 추가 실패"));
-        }
-  
-      }catch (Exception e) {
-        throw new UnauthorizedException("유효하지 않은 토큰입니다.");
+    public ResponseEntity<Map<String, Object>> createComment(@RequestHeader("Authorization") String authorizationHeader, @RequestBody BoardCommentDto comment) {
+      BoardCommentDto newComment = boardService.createComment(comment);
+      if(newComment != null){
+        return ResponseEntity.status(HttpStatus.CREATED).body(Collections.singletonMap("message", "게시글을 등록했습니다."));
+      }else {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap("message", "게시글 추가 실패"));
       }
-
     }
     
 
